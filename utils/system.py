@@ -39,12 +39,13 @@ class System:
             os.system('clear')
 
     def press_return(self):
-        input("Press 'enter' to return.")
+        input("\n Press 'enter' to return.")
         self.clear_screen()
         
     def income(self):
         print("------------------------------")
         self.monthly_income = float(input(" Monthly Income: "))
+        self.press_return()
 
     def expenses(self):
         print("----------------------------------------")
@@ -54,14 +55,16 @@ class System:
         self.ebill = float(input(" Electric Bill: "))
         self.wbill = float(input(" Water Bill: "))
         self.ibill = float(input(" Internet Bill: "))
-        self.grocery = float(input("Grocery: "))
-        self.ent = float(input("Entertainment: "))
+        self.grocery = float(input(" Grocery: "))
+        self.ent = float(input(" Entertainment: "))
         self.misc = float(input(" Miscellaneous: "))
 
         self.total_expenses = self.housing + self.ebill + self.wbill + self.ibill + self.grocery + self.ent + self.misc
 
         print("----------------------------------------")
         print(f" Total Expenses: {self.total_expenses}")
+
+        self.press_return()
 
     def budget(self):
         print("----------------------------------------")
@@ -71,8 +74,8 @@ class System:
         self.ebill_budg = float(input(" Electric Bill: "))
         self.wbill_budg = float(input(" Water Bill: "))
         self.ibill_budg = float(input(" Internet Bill: "))
-        self.grocery_budg = float(input("Grocery: "))
-        self.ent_budg = float(input("Entertainment: "))
+        self.grocery_budg = float(input(" Grocery: "))
+        self.ent_budg = float(input(" Entertainment: "))
         self.misc_budg = float(input(" Miscellaneous: "))
 
         self.total_budget = self.housing_budg + self.ebill_budg + self.wbill_budg + self.ibill_budg + self.grocery_budg + self.ent_budg + self.misc_budg
@@ -81,15 +84,19 @@ class System:
         print(f" Total Expenses: {self.total_budget}")
 
         if self.monthly_income == 0.0:
-            print("\nYou have not set an income.")
+            print("\n You have not set an income.")
         elif self.total_budget > self.monthly_income:
-            print("\nYour budget is insufficient.")
+            print("\n Your budget is insufficient.")
         else: 
-            print("\nYou have enough budget.")
+            print("\n You have enough budget.")
+
+        self.press_return()
 
     def savings_goal(self):
         print("------------------------------")
         self.sgoal = float(input(" Savings Goal: "))
+
+        self.press_return()
 
     def budget_system(self):
         self.housing_calc = self.housing_budg - self.housing
@@ -106,21 +113,21 @@ class System:
         print("                            Budget Management System")
         print("==================================================================================")
         print("     CATEGORY     |     BUDGET     |     SPENT     |     OVER/UNDER     ")
-        print(f" Housing:           {self.housing_budg}     {self.housing}      {self.housing_calc}")
-        print(f" Electric Bill:     {self.ebill_budg}       {self.ebill}        {self.ebill_calc}")
-        print(f" Water Bill:        {self.wbill_budg}       {self.wbill}        {self.wbill_calc}")
-        print(f" Internet Bill:     {self.ibill_budg}       {self.ibill}        {self.ibill_calc}")
-        print(f" Grocery:           {self.grocery_budg}     {self.grocery}      {self.grocery_calc}")
-        print(f" Entertainment:     {self.ent_budg}         {self.ent}          {self.ent_calc}")
-        print(f" Miscellaneous:     {self.misc_budg}        {self.misc}         {self.misc_calc}")
+        print(f" Housing:               {self.housing_budg}            {self.housing}             {self.housing_calc}")
+        print(f" Electric Bill:         {self.ebill_budg}            {self.ebill}             {self.ebill_calc}")
+        print(f" Water Bill:            {self.wbill_budg}            {self.wbill}             {self.wbill_calc}")
+        print(f" Internet Bill          {self.ibill_budg}            {self.ibill}             {self.ibill_calc}")
+        print(f" Grocery:               {self.grocery_budg}            {self.grocery}             {self.grocery_calc}")
+        print(f" Entertainment:         {self.ent_budg}            {self.ent}             {self.ent_calc}")
+        print(f" Miscellaneous          {self.misc_budg}            {self.misc}             {self.misc_calc}")
         print("----------------------------------------------------------------------------------")
-        print(f" TOTAL:             {self.total_budget}     {self.total_expenses}       {self.total}")
+        print(f" TOTAL:                 {self.total_budget}           {self.total_expenses}             {self.total}")
         print("==================================================================================")
 
         if self.total >= self.sgoal:
-            print(f"\nYou have met your savings goal ({self.sgoal}). You saved: {self.total}")
+            print(f"\n You have met your savings goal ({self.sgoal}). You saved: {self.total}")
         else:
-            print(f"\nYou are below your savings goal ({self.sgoal}). You are short {self.sgoal - self.total}")
+            print(f"\n You are below your savings goal ({self.sgoal}). You are short {self.sgoal - self.total}")
 
         self.press_return()
 
